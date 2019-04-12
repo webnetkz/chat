@@ -21,7 +21,7 @@
     <body>
         
         <script>
-             // Проверка на поддержку service worker
+             // Проверка borwser на поддержку service worker
             if('serviceWorker' in navigator) {
                 navigator.serviceWorker
                     .register('/sw.js')
