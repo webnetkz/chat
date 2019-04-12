@@ -1,3 +1,7 @@
+<?php
+        require_once "app/libs/DataBase.php";
+        $pdo = new DataBase();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -20,18 +24,15 @@
 
     <body>
         <div id="content">
-        <?php
-            require_once "app/libs/DataBase.php";
-            $pdo = new DataBase();
 
 
-        ?>
-
-        <form class="sign">
+        <form class="sign" action="/app/core/sign.php" method="POST">
             <input type="text" name="login" autocomplete="off" class="inp" placeholder="Your login">
-            <button type="submit" name="submit" class="inpBtn">GO</button>
+            <input type="submit" class="subBtn" value="1">
         </form>
 
+            
+        <img src="/public/img/logo.png" alt="logo" class="logo">
         
         </div>
         <script>
