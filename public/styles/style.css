@@ -5,5 +5,14 @@
 
 html, body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #00adef;
+    background-color: rgb(23,26,33);
+}
+
+form.sign {
+    display: inline-block;
+    position: fixed;
+    height: 20%;
+    width: 100%;
+    top: 50%;
+    left: 0;
 }
