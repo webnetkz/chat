@@ -19,8 +19,17 @@
         $result = $stmt->fetch(PDO::FETCH_OBJ);
 
         if($result) {
-            $_SESSION['res'] = 'Логин существует!';
-        }
+            header("Location: /chat.php");
+        } else {
+            $sqlReg = 'INSERT INTO users (login, online) VALUES (?, 1)';
+            $stmtReg = $pdo->x->prepare($sqlReg);
 
-        header("Location: ../../chat.php");
+            $stmtReg->execute([$login]);
+            header("Location: /chat.php");
+        }
+        
+
+
+        
+
     }

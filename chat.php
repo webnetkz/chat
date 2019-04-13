@@ -35,7 +35,7 @@
         <div id="content">
             <header>
                 <p class="login"><?php echo $_SESSION['login'];?></p>
-                <button class="exit">Exit</button>
+                <a href="/app/core/exit.php"><button class="exit">Exit</button></a>
             </header>
         <pre>
 
@@ -46,8 +46,10 @@
         </pre>
         <?php 
 
-            var_dump($_SESSION['res']);
-            
+            if(isset($_SESSION['mes'])) {
+                echo $_SESSION['mes'];
+            }
+
         ?>
 
 
