@@ -1,6 +1,10 @@
 <?php
+
+        session_start();
+
         require_once "app/libs/DataBase.php";
         $pdo = new DataBase();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +29,9 @@
     <body>
         <div id="content">
 
+        <?php 
+             echo $_SESSION['login'];
+        ?>
 
         <form class="sign" action="/app/core/sign.php" method="POST">
             <input type="text" name="login" autocomplete="off" class="inp" placeholder="Your login">

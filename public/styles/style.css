@@ -6,6 +6,7 @@
 html, body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(23,26,33);
+    color: rgb(54, 111, 149);
 }
 
 img.logo {
@@ -31,16 +32,20 @@ input.subBtn {
 }
 
 input.inp {
-    margin-left: 10%;
+    margin-left: 15%;
     outline: none;
     color: rgb(54,111,149);
     transition-duration: 500ms;
     text-align: center;
     border-radius: 20px;
+    background-color: rgb(54, 111, 149);
+    box-shadow: 0 15px 15px rgba(54, 111, 149);
+    border: none;
+    transform: scale(1.5);
 }
 
 input.inp:focus {
-    transform: scale(2);
+    transform: scale(2.5);
     border: none;
     border-bottom: 2px solid rgb(54, 111, 149);
     background-color: rgb(23,26,33);
