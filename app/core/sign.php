@@ -10,5 +10,5 @@
         $login = trim($login);
         
         $_SESSION['login'] = $login;
-        header("Location: ../../");
+        header("Location: ../../chat.php");
     }
