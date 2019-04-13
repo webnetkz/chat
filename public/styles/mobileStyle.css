@@ -19,4 +19,17 @@
     input.inp:focus {
         transform: scale(2);
     }
+
+    input.subBtn {
+        position: fixed;
+        top: 90%;
+        left: 45%;
+        visibility: visible;
+        background-color: rgb(54, 111, 149);
+        color: rgb(255, 255, 255);
+        border: none;
+        border-radius: 20px;
+        padding: 1em;
+        outline: none;
+    }
 }

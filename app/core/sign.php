@@ -11,7 +11,6 @@
         
         $_SESSION['login'] = $login;
 
-        //Проверка на существование логина
         $sql = 'SELECT login FROM users WHERE login = ?';
         $stmt = $pdo->x->prepare($sql);
 
@@ -26,10 +25,7 @@
 
             $stmtReg->execute([$login]);
             header("Location: /chat.php");
-        }
-        
-
-
-        
-
+        }   
+    } else {
+        header("Location: /");
     }

@@ -37,20 +37,12 @@
                 <p class="login"><?php echo $_SESSION['login'];?></p>
                 <a href="/app/core/exit.php"><button class="exit">Exit</button></a>
             </header>
-        <pre>
 
-
-
-
-
-        </pre>
-        <?php 
-
-            if(isset($_SESSION['mes'])) {
-                echo $_SESSION['mes'];
-            }
-
-        ?>
+        <form action="/app/core/search.php" method="POST" class="sign">
+            <input type="text" autocomplete="off" class="inp" placeholder="search user" name="user">
+            <input type="text" autocomplete="off" class="inp" placeholder="search room" name="room">
+            <input type="submit" class="subBtn" value="Go">
+        </form>
 
 
             

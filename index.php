@@ -1,9 +1,9 @@
 <?php
 
         session_start();
-        /*if(!empty($_SESSION['login'])) {
+        if(!empty($_SESSION['login'])) {
             header("Location: /chat.php");
-        }*/
+        }
 
         require_once "app/libs/DataBase.php";
         $pdo = new DataBase();
@@ -34,7 +34,7 @@
 
         <form class="sign" action="/app/core/sign.php" method="POST">
             <input type="text" name="login" autocomplete="off" class="inp" placeholder="Your login">
-            <input type="submit" class="subBtn" value="1">
+            <input type="submit" class="subBtn" value="Go">
         </form>
 
             

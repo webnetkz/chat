@@ -64,6 +64,7 @@ input.inp {
     box-shadow: 0 15px 15px rgba(54, 111, 149);
     border: none;
     transform: scale(1.5);
+    margin-bottom: 2em;
 }
 
 input.inp:focus {
@@ -105,3 +106,7 @@ button.exit {
 button.exit:hover {
     box-shadow: 0 0 10px rgb(244, 244, 233);
 }
+
+
+/*****************************  STYLE CHAT *****************************/
+

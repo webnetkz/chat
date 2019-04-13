@@ -6,8 +6,12 @@
     $pdo = new DataBase();
 
     $login = $_SESSION['login'];
-    $pdo->x->query("DELETE FROM users WHERE login = $login");
 
+    $sql = 'DELETE FROM users WHERE login = ?';
+    $stmt = $pdo->x->prepare($sql);
+
+    $stmt->execute([$login]);
+    
     session_destroy();
 
     header('Location: /');
