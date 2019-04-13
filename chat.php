@@ -14,7 +14,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>SecretChat</title>
+        <title>SChat</title>
 
         <meta charset="UTF-8">
         <meta name="theme-color" content="rgb(54, 111, 149)">
@@ -33,9 +33,21 @@
 
     <body>
         <div id="content">
+            <header>
+                <p class="login"><?php echo $_SESSION['login'];?></p>
+                <button class="exit">Exit</button>
+            </header>
+        <pre>
 
+
+
+
+
+        </pre>
         <?php 
-             echo $_SESSION['login'];
+
+            var_dump($_SESSION['res']);
+            
         ?>
 
 

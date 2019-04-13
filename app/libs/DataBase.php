@@ -5,7 +5,7 @@ class DataBase {
     public $x;
     protected $driver = 'mysql';
     protected $host = 'localhost';
-    protected $dbname = 'kodex';
+    protected $dbname = 'secretchat';
     protected $charset = 'utf8';
     protected $port = 3306;
     protected $login = 'root';

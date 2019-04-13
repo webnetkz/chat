@@ -1,8 +1,8 @@
 @media only screen and (max-width: 900px) {
     img.logo {
-        top: 10%;
+        top: 20%;
         left: 0;
-        height: 65%;
+        height: 400px;
         width: 100%;
         z-index: -11;
     }

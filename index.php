@@ -1,6 +1,9 @@
 <?php
 
         session_start();
+        /*if(!empty($_SESSION['login'])) {
+            header("Location: /chat.php");
+        }*/
 
         require_once "app/libs/DataBase.php";
         $pdo = new DataBase();
@@ -9,7 +12,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>SecretChat</title>
+        <title>SChat</title>
 
         <meta charset="UTF-8">
         <meta name="theme-color" content="rgb(54, 111, 149)">
