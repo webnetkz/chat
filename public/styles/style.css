@@ -16,6 +16,17 @@ img.logo {
     top: 3%;
     left: 50%;
     opacity: 0.1;
+    animation: logoShow 1s linear; 
+}
+
+@keyframes logoShow {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.1;
+    }
 }
 
 form.sign {
@@ -25,6 +36,17 @@ form.sign {
     width: 100%;
     top: 50%;
     left: 0;
+    animation: formShow 600ms linear;
+}
+
+@keyframes formShow {
+    0% {
+        margin-left: -100%;
+    }
+
+    100% {
+        margin-left: 0;
+    }
 }
 
 input.subBtn {
