@@ -32,4 +32,17 @@
         padding: 1em;
         outline: none;
     }
+
+    input.mes {
+        position: fixed;
+        top: 90%;
+        left: 0;
+        width: 30%;
+    }
+
+    input.sendBtn {
+        position: fixed;
+        top: 88%;
+        left: 80%;
+    }
 }

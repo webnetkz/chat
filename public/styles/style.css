@@ -110,3 +110,12 @@ button.exit:hover {
 
 /*****************************  STYLE CHAT *****************************/
 
+form.chat {
+    position: fixed;
+    top: 90%;
+    left: 20%;
+}
+
+input.mes {
+    width: 160%;
+}

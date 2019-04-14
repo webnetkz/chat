@@ -6,6 +6,10 @@
         require_once "app/libs/DataBase.php";
         $pdo = new DataBase();
 
+        if(!empty($_POST['mes'])) {
+            
+        }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,9 +36,9 @@
 
            
 
-        <form class="sign" action="/app/core/sign.php" method="POST">
-            <input type="text" name="login" autocomplete="off" class="inp" placeholder="chat">
-            <input type="submit" class="subBtn" value="Go">
+        <form class="chat" action="/chat.php" method="POST">
+            <input type="text" name="mes" autocomplete="off" class="inp mes" placeholder="Text">
+            <input type="submit" class="subBtn sendBtn" value="Send">
         </form>
 
             

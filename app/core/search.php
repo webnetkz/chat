@@ -19,12 +19,12 @@
         
         if(!empty($result)) {
 
-            $login = $_SESSION['login'];
+            $nameTable = $_SESSION['login'].'_'.$user;
             // Create Chat
-            $pdo->x->query("CREATE TABLE chat_$login_$user (id INT(1000) UNSIGNED NOT NULL AUTO_INCREMENT,
+            $pdo->x->query("CREATE TABLE chat_$nameTable(id INT(255) UNSIGNED NOT NULL AUTO_INCREMENT,
                 message VARCHAR(8000) NOT NULL,
                 name VARCHAR(55) NOT NULL,
-                PRIMARY KEY (id))
+                PRIMARY KEY (id)
             )");
 
             $_SESSION['user'] = $user;
