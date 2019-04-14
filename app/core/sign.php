@@ -18,13 +18,13 @@
         $result = $stmt->fetch(PDO::FETCH_OBJ);
 
         if($result) {
-            header("Location: /chat.php");
+            header("Location: /room.php");
         } else {
-            $sqlReg = 'INSERT INTO users (login, online) VALUES (?, 1)';
+            $sqlReg = 'INSERT INTO users (login) VALUES (?)';
             $stmtReg = $pdo->x->prepare($sqlReg);
 
             $stmtReg->execute([$login]);
-            header("Location: /chat.php");
+            header("Location: /room.php");
         }   
     } else {
         header("Location: /");

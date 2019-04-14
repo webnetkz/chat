@@ -12,6 +12,8 @@
 
     $stmt->execute([$login]);
     
+
+    $_SESSION[] = ''; 
     session_destroy();
 
     header('Location: /');

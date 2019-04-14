@@ -2,7 +2,7 @@
 
         session_start();
         if(!empty($_SESSION['login'])) {
-            header("Location: /chat.php");
+            header("Location: /room.php");
         }
 
         require_once "app/libs/DataBase.php";

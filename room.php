@@ -1,12 +1,16 @@
 <?php
 
-        session_start();
+    session_start();
 
+    if(empty($_SESSION['login'])) {
+        header("Location: /");
+    }
 
-        require_once "app/libs/DataBase.php";
-        $pdo = new DataBase();
+    require_once "/app/libs/DataBase.php";
+    $pdo = new DataBase();
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -29,13 +33,21 @@
 
     <body>
         <div id="content">
+            <header>
+                <p class="login"><?php echo $_SESSION['login'];?></p>
+                <a href="/app/core/exit.php"><button class="exit">Exit</button></a>
+            </header>
 
-           
-
-        <form class="sign" action="/app/core/sign.php" method="POST">
-            <input type="text" name="login" autocomplete="off" class="inp" placeholder="chat">
+        <form action="/app/core/search.php" method="POST" class="sign">
+            <?php if(!empty($_SESSION['mes'])) {
+                    echo $_SESSION['mes'];
+                    $_SESSION['mes'] = '';
+                }
+                ?>
+            <input type="text" autocomplete="off" class="inp" placeholder="search user" name="user">
             <input type="submit" class="subBtn" value="Go">
         </form>
+
 
             
         <img src="/public/img/logo.png" alt="logo" class="logo">
