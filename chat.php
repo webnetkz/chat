@@ -7,7 +7,7 @@
         $pdo = new DataBase();
 
         if(!empty($_POST['mes'])) {
-            
+
         }
 
 ?>
@@ -15,8 +15,8 @@
 <html lang="en">
     <head>
         <title>SChat</title>
-
         <meta charset="UTF-8">
+
         <meta name="theme-color" content="rgb(54, 111, 149)">
         <meta name="author" content="WebNet">
         <meta name="description" content="SecretChat by WebNet">
@@ -27,13 +27,24 @@
         <link rel="shortcut icon" href="/secretchat.png" type="image/svg">
         <link rel="stylesheet" href="/public/styles/style.css">
         <link rel="stylesheet" href="/public/styles/mobileStyle.css">
-        <link rel="manifest" href="/manifest.json">
-        
+        <link rel="manifest" href="/manifest.json"> 
     </head>
 
     <body>
         <div id="content">
 
+
+        <div class="chat">
+            <?php
+                $nameChat = $_SESSION['chat'];
+                $chat = $pdo->x->query("SELECT * FROM chat_$nameChat");
+                $chat = $chat->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach($chat as $key => $value) {
+                    echo $value['name'] . ':' . $value['message'] . '<br>';
+                }
+            ?>
+        </div>
            
 
         <form class="chat" action="/chat.php" method="POST">
