@@ -1,14 +1,17 @@
 <?php
 
-        session_start();
+    session_start();
+    $nameChat = 'chat_'.$_SESSION['chat'];
+    $login = $_SESSION['login'];
 
+    require_once "app/libs/DataBase.php";
+    $pdo = new DataBase();
 
-        require_once "app/libs/DataBase.php";
-        $pdo = new DataBase();
-
-        if(!empty($_POST['mes'])) {
-
-        }
+    if(!empty($_POST['mes'])) {
+        $mes = htmlspecialchars($_POST['mes']);
+            
+        $pdo->x->query("INSERT INTO $nameChat (message, name) VALUES ('$mes', '$login')");
+    }
 
 ?>
 <!DOCTYPE html>
@@ -36,12 +39,11 @@
 
         <div class="chat">
             <?php
-                $nameChat = $_SESSION['chat'];
-                $chat = $pdo->x->query("SELECT * FROM chat_$nameChat");
+                $chat = $pdo->x->query("SELECT * FROM $nameChat");
                 $chat = $chat->fetchAll(PDO::FETCH_ASSOC);
 
                 foreach($chat as $key => $value) {
-                    echo $value['name'] . ':' . $value['message'] . '<br>';
+                    echo $value['name'] . ':' . $value['message'] . '<br >';
                 }
             ?>
         </div>

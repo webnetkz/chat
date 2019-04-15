@@ -119,3 +119,14 @@ form.chat {
 input.mes {
     width: 160%;
 }
+
+div.chat {
+    position: relative;
+    margin-top: 3%;
+    left: 3%;
+    padding: 3%;
+    width: 40%;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.2);
+    overflow: none;
+}
