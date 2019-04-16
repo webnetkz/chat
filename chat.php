@@ -13,6 +13,10 @@
         $pdo->x->query("INSERT INTO $nameChat (message, name) VALUES ('$mes', '$login')");
     }
 
+
+    $chats = $pdo->x->query("SELECT * FROM 'chat_'. $login.[?]");
+
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,9 +51,11 @@
                 }
             ?>
         </div>
-           
+                <?php
+                    var_dump($chats);
+                ?>
 
-        <form class="chat" action="/chat.php" method="POST">
+        <form class="chat" name="formChat">
             <input type="text" name="mes" autocomplete="off" class="inp mes" placeholder="Text">
             <input type="submit" class="subBtn sendBtn" value="Send">
         </form>
@@ -58,6 +64,7 @@
         <img src="/public/img/logo.png" alt="logo" class="logo">
         
         </div>
+        <script src="/public/scripts/ajaxChat.js"></script>
         <script src="/public/scripts/main.js"></script>
     </body>
 </html>
