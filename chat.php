@@ -1,23 +1,3 @@
-<?php
-
-    session_start();
-    $nameChat = 'chat_'.$_SESSION['chat'];
-    $login = $_SESSION['login'];
-
-    require_once "app/libs/DataBase.php";
-    $pdo = new DataBase();
-
-    if(!empty($_POST['mes'])) {
-        $mes = htmlspecialchars($_POST['mes']);
-            
-        $pdo->x->query("INSERT INTO $nameChat (message, name) VALUES ('$mes', '$login')");
-    }
-
-
-    $chats = $pdo->x->query("SELECT * FROM 'chat_'. $login.[?]");
-
-    
-?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -42,18 +22,8 @@
 
 
         <div class="chat">
-            <?php
-                $chat = $pdo->x->query("SELECT * FROM $nameChat");
-                $chat = $chat->fetchAll(PDO::FETCH_ASSOC);
-
-                foreach($chat as $key => $value) {
-                    echo $value['name'] . ':' . $value['message'] . '<br >';
-                }
-            ?>
+            
         </div>
-                <?php
-                    var_dump($chats);
-                ?>
 
         <form class="chat" name="formChat">
             <input type="text" name="mes" autocomplete="off" class="inp mes" placeholder="Text">
