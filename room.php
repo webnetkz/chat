@@ -28,7 +28,7 @@
         <link rel="stylesheet" href="/public/styles/style.css">
         <link rel="stylesheet" href="/public/styles/mobileStyle.css">
         <link rel="manifest" href="/manifest.json">
-        
+         
     </head>
 
     <body>
@@ -37,13 +37,14 @@
                 <p class="login"><?php echo $_SESSION['login'];?></p>
                 <a href="/app/core/exit.php"><button class="exit">Exit</button></a>
             </header>
-
-        <form action="/app/core/search.php" method="POST" class="sign">
-            <?php if(!empty($_SESSION['mes'])) {
-                    echo $_SESSION['mes'];
-                    $_SESSION['mes'] = '';
-                }
+            <p class="err">
+                <?php if(!empty($_SESSION['mes'])) {
+                        echo $_SESSION['mes'];
+                        $_SESSION['mes'] = '';
+                    }
                 ?>
+            </p>    
+        <form action="/app/core/search.php" method="POST" class="sign">
             <input type="text" autocomplete="off" class="inp" placeholder="search user" name="user">
             <input type="submit" class="subBtn" value="Go">
         </form>

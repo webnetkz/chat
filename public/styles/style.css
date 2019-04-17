@@ -110,6 +110,11 @@ button.exit:hover {
 
 /*****************************  STYLE CHAT *****************************/
 
+p.err {
+    margin-top: 20%;
+    margin-left: 17%;
+}
+
 form.chat {
     position: fixed;
     top: 90%;
@@ -129,4 +134,20 @@ div.chat {
     height: 500px;
     background-color: rgba(0, 0, 0, 0.2);
     overflow: auto;
+}
+
+
+#chat::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: rgb(255, 255, 255);
+}
+
+#chat::-webkit-scrollbar {
+	width: 6px;
+	background-color: rgb(255, 255, 255);
+}
+
+#chat::-webkit-scrollbar-thumb {
+    background-color: rgb(54, 111, 149);
+    border-radius: 6px;
 }

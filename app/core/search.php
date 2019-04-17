@@ -4,19 +4,21 @@
 
     require_once "../libs/DataBase.php";
     $pdo = new DataBase();
-
+    $login = $_SESSION['login'];
 
     if(!empty($_POST['user'])) {
         
         $user = trim($_POST['user']);
         $user = htmlspecialchars($user);
         
+        // Search user from table
         $sql = 'SELECT * FROM users WHERE login = ?';
         $stmt = $pdo->x->prepare($sql);
         
         $stmt->execute([$user]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         
+        // If user select
         if(!empty($result)) {
 
             $nameChat = $_SESSION['login'].'_'.$user;
@@ -27,15 +29,19 @@
                 PRIMARY KEY (id)
             )");
 
+            // Append main chats for table
+            $pdo->x->query("INSERT INTO users (chats) VALUES (chat_$nameChat) WHERE login = $login");
+
             $_SESSION['chat'] = $nameChat;
-            $_SESSION['user'] = $user;
             header('Location: ../../chat.php');
         } else {
-            $_SESSION['mes'] = 'User is not found';
+            // If user in not found
+            $_SESSION['mes'] = 'User is not found!';
             header('Location: ../../room.php');
         }  
     }
     
+    // Bad require
     if($_POST['user'] === '' or $_POST['user'] === $_SESSION['login']) {
         header('Location: ../../room.php');
     }

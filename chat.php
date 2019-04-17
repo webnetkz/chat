@@ -35,7 +35,7 @@
         <div id="content">
 
 
-        <div class="chat">
+        <div class="chat" id="chat">
             <?php
                 // Show message
                 foreach($chat as $key => $value) {
@@ -48,7 +48,6 @@
             <input type="text" name="mes" autocomplete="off" class="inp mes" placeholder="Text" autofocus>
             <input type="submit" class="subBtn sendBtn" value="Send">
         </form>
-
             
         <img src="/public/img/logo.png" alt="logo" class="logo">
         

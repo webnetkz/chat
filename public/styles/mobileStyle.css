@@ -22,7 +22,7 @@
 
     input.subBtn {
         position: fixed;
-        top: 93%;
+        top: 92%;
         left: 45%;
         visibility: visible;
         background-color: rgb(54, 111, 149);
@@ -44,5 +44,9 @@
         position: fixed;
         top: 88%;
         left: 80%;
+    }
+
+    #chat {
+        width: 90%;
     }
 }
