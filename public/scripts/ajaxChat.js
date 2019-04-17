@@ -1,10 +1,8 @@
 var chat = document.querySelector(".chat");
 
 document.forms.formChat.onsubmit = function(event) {
+    
     event.preventDefault();
-
-    var userText = document.forms.formChat.mes.value;
-    userText = encodeURIComponent(userText);
 
     var xhr = new XMLHttpRequest();
 
@@ -19,5 +17,9 @@ document.forms.formChat.onsubmit = function(event) {
     }
 
     xhr.send(formData);
+    
+    // Clear input text and scroll down page
+    document.forms.formChat.reset();
+    chat.scrollTop = chat.scrollHeight;
 }
 

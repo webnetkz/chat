@@ -15,11 +15,11 @@
         $pdo->x->query("INSERT INTO $nameChat (message, name) VALUES ('$mes', '$login')");
     }
 
-    // Select message from table chat
+    //Select message from table chat
     $chat = $pdo->x->query("SELECT * FROM $nameChat");
     $chat = $chat->fetchAll(PDO::FETCH_ASSOC);
 
-    // Show message
+    //Show message
     foreach($chat as $key => $value) {
         echo $value['name'] . ' : ' . $value['message'] . '<br>';
     }
