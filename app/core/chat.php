@@ -21,5 +21,7 @@
 
     // Show message
     foreach($chat as $key => $value) {
-        echo $value['message'] . htmlspecialchars_decode('&lt;br&gt;');
+        echo $value['name'] . ' : ' . $value['message'] . '<br>';
     }
+
+

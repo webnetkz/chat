@@ -128,5 +128,5 @@ div.chat {
     width: 40%;
     height: 500px;
     background-color: rgba(0, 0, 0, 0.2);
-    overflow: none;
+    overflow: auto;
 }

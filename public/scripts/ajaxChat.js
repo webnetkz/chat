@@ -12,12 +12,12 @@ document.forms.formChat.onsubmit = function(event) {
 
     var formData = new FormData(document.forms.formChat);
 
-    xhr.onreadystatechange = function()  {
+    xhr.onreadystatechange = function() {
         if(xhr.readyState === 4 && xhr.status === 200) {
-            chat.textContent = xhr.responseText;
+            chat.innerHTML = xhr.responseText;
         }
     }
 
     xhr.send(formData);
-
 }
+
