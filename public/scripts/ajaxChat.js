@@ -1,7 +1,9 @@
 var chat = document.querySelector(".chat");
 
+    // Сообщение отправлено
     document.forms.formChat.onsubmit = function(event) {
         
+        // Отмена перезагрузки страницы
         event.preventDefault(event);
         
         var xhr = new XMLHttpRequest();
@@ -9,7 +11,8 @@ var chat = document.querySelector(".chat");
         xhr.open('POST', '/app/core/chat.php');
         
         var formData = new FormData(document.forms.formChat);
-        
+ 
+        // Если сервер ответил добовляем сообщение в чат
         xhr.onreadystatechange = function() {
             if(xhr.readyState === 4 && xhr.status === 200) {
                 chat.innerHTML = xhr.responseText;
@@ -18,11 +21,12 @@ var chat = document.querySelector(".chat");
         
         xhr.send(formData);
         
-        // Clear input text and scroll down page
+        // Очистка поля ввода и смещение фокуса
         document.forms.formChat.reset();
         chat.scrollTop = chat.scrollHeight;
     }
 
+// Проверка новых сообщений
 setInterval(function() {
     let xhr = new XMLHttpRequest();
     
@@ -30,7 +34,7 @@ setInterval(function() {
         xhr.send();
         chat.innerHTML = xhr.responseText;
 
-        // Clear input text and scroll down page
+        // Очистка поля ввода и смещение фокуса
         document.forms.formChat.reset();
         chat.scrollTop = chat.scrollHeight;
 }, 1000);

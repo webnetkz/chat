@@ -11,18 +11,18 @@
         $user = trim($_POST['user']);
         $user = htmlspecialchars($user);
         
-        // Search user from table
+        // Поиск пользователя в таблицах
         $sql = 'SELECT * FROM users WHERE login = ?';
         $stmt = $pdo->x->prepare($sql);
         
         $stmt->execute([$user]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         
-        // If user select
+        // Если пользователь существует
         if(!empty($result)) {
 
             $nameChat = $_SESSION['login'].'_'.$user;
-            // Create Chat
+            // Создание таблицы чата
             $pdo->x->query(
                 "CREATE TABLE chat_$nameChat(id INT(255) UNSIGNED NOT NULL AUTO_INCREMENT,
                 message VARCHAR(8000) NOT NULL,
@@ -30,19 +30,20 @@
                 PRIMARY KEY (id))"
             );
             
-            // Append name chat for main chats
+            // Добавления чатов 
             $pdo->x->query("INSERT INTO $login(chats) VALUES ('chat_$nameChat')");
+            $pdo->x->query("INSERT INTO $user(chats) VALUES ('chat_$nameChat')");
 
             $_SESSION['chat'] = $nameChat;
             header('Location: ../../chat.php');
         } else {
-            // If user in not found
+            // Если пользователь не найден
             $_SESSION['mes'] = 'User is not found!';
             header('Location: ../../room.php');
         }  
     }
     
-    // Bad require
+    // Неверные запросы
     if($_POST['user'] === '' or $_POST['user'] === $_SESSION['login']) {
         header('Location: ../../room.php');
     }
