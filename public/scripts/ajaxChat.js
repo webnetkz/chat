@@ -22,3 +22,15 @@ var chat = document.querySelector(".chat");
         document.forms.formChat.reset();
         chat.scrollTop = chat.scrollHeight;
     }
+
+setInterval(function() {
+    let xhr = new XMLHttpRequest();
+    
+        xhr.open('GET', '../../app/core/message.php', false);
+        xhr.send();
+        chat.innerHTML = xhr.responseText;
+
+        // Clear input text and scroll down page
+        document.forms.formChat.reset();
+        chat.scrollTop = chat.scrollHeight;
+}, 1000);
