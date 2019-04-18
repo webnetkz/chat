@@ -1,19 +1,19 @@
 <?php
 
-    session_start();
+session_start();
 
-    require_once "../libs/DataBase.php";
-    $pdo = new DataBase();
+require_once "../libs/DataBase.php";
+$pdo = new DataBase();
 
-    $login = $_SESSION['login'];
+$login = $_SESSION['login'];
 
-    $sql = 'DELETE FROM users WHERE login = ?';
-    $stmt = $pdo->x->prepare($sql);
+$sql = 'DELETE FROM users WHERE login = ?';
+$stmt = $pdo->x->prepare($sql);
 
-    $stmt->execute([$login]);
+$stmt->execute([$login]);
     
 
-    $_SESSION[] = ''; 
-    session_destroy();
+$_SESSION[] = ''; 
+session_destroy();
 
-    header('Location: /');
+header('Location: /');
