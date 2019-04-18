@@ -22,6 +22,3 @@ var chat = document.querySelector(".chat");
         document.forms.formChat.reset();
         chat.scrollTop = chat.scrollHeight;
     }
-    
-
-

@@ -23,14 +23,15 @@
 
             $nameChat = $_SESSION['login'].'_'.$user;
             // Create Chat
-            $pdo->x->query("CREATE TABLE chat_$nameChat(id INT(255) UNSIGNED NOT NULL AUTO_INCREMENT,
+            $pdo->x->query(
+                "CREATE TABLE chat_$nameChat(id INT(255) UNSIGNED NOT NULL AUTO_INCREMENT,
                 message VARCHAR(8000) NOT NULL,
                 name VARCHAR(55) NOT NULL,
-                PRIMARY KEY (id)
-            )");
-
-            // Append main chats for table
-            $pdo->x->query("INSERT INTO users (chats) VALUES (chat_$nameChat) WHERE login = $login");
+                PRIMARY KEY (id))"
+            );
+            
+            // Append name chat for main chats
+            $pdo->x->query("INSERT INTO $login(chats) VALUES ('chat_$nameChat')");
 
             $_SESSION['chat'] = $nameChat;
             header('Location: ../../chat.php');

@@ -20,11 +20,20 @@
         if($result) {
             header("Location: /room.php");
         } else {
+            // Append login for table users
             $sqlReg = 'INSERT INTO users (login) VALUES (?)';
             $stmtReg = $pdo->x->prepare($sqlReg);
 
             $stmtReg->execute([$login]);
-            header("Location: /room.php");
+            
+            // Create table for chats
+            $pdo->x->query(
+                "CREATE TABLE IF NOT EXISTS $login(id INT (255) UNSIGNED NOT NULL AUTO_INCREMENT,
+                chats VARCHAR(55) NOT NULL,    
+                PRIMARY KEY (id))"
+            );
+
+            header("Location: /room.php"); 
         }   
     } else {
         header("Location: /");
