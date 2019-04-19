@@ -2,6 +2,7 @@
 
 session_start();
 
+// Подключение к Базе данных
 require_once "../libs/DataBase.php";
 $pdo = new DataBase();
 
@@ -22,7 +23,7 @@ if(!empty($_POST['login'])) {
     if($result) {
         header("Location: /room.php");
     } else {
-        // Создать пользователя
+        // Иначе создаем пользователя
         $sqlReg = 'INSERT INTO users (login) VALUES (?)';
         $stmtReg = $pdo->x->prepare($sqlReg);
 

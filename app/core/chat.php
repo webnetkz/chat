@@ -4,21 +4,21 @@ session_start();
 $nameChat = 'chat_'.$_SESSION['chat'];
 $login = $_SESSION['login'];
     
-// Connect DataBase
+// Подключение к базе данных
 require_once "../libs/DataBase.php";
 $pdo = new DataBase();
     
-// Append message for table chat
+// Добавить сообщение в чат
 if(!empty($_POST['mes'])) {
     $mes = htmlspecialchars($_POST['mes']);
     $pdo->x->query("INSERT INTO $nameChat (message, name) VALUES ('$mes', '$login')");
 }
 
-// Select message from table chat
+// Выбрать сообщения чата
 $chat = $pdo->x->query("SELECT * FROM $nameChat");
 $chat = $chat->fetchAll(PDO::FETCH_ASSOC);
 
-//Show message
+// Отобразить сообщения
 foreach($chat as $key => $value) {
     echo $value['name'] . ' : ' . $value['message'] . '<br>';
 }

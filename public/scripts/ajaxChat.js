@@ -1,6 +1,6 @@
 var chat = document.querySelector(".chat");
 
-// Сообщение отправлено
+// Попытка отправки сообщения на сервер
 document.forms.formChat.onsubmit = function(event) {
     
     // Отмена перезагрузки страницы
@@ -12,7 +12,7 @@ document.forms.formChat.onsubmit = function(event) {
         
     var formData = new FormData(document.forms.formChat);
  
-    // Если сервер ответил добовляем сообщение в чат
+    // Если сервер ответил, добовляем сообщения в чат
     xhr.onreadystatechange = function() {
         if(xhr.readyState === 4 && xhr.status === 200) {
             chat.innerHTML = xhr.responseText;
