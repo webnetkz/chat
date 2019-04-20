@@ -34,7 +34,6 @@ setInterval(function con() {
         xhr.send();
         chat.innerHTML = xhr.responseText;
 
-        // Очистка поля ввода и смещение фокуса
-        document.forms.formChat.reset();
+        // Смещение фокуса
         chat.scrollTop = chat.scrollHeight;
 }, 1000);

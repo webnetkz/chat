@@ -6,9 +6,17 @@
         header("Location: /");
     }
 
+    $login = $_SESSION['login'];
+
     require_once "/app/libs/DataBase.php";
     $pdo = new DataBase();
 
+    $res = $pdo->x->query("SELECT * FROM $login");
+    $res = $res->fetch(PDO::FETCH_ASSOC);
+
+    if($res) {
+        echo 123;
+    }
 ?>
 
 <!DOCTYPE html>

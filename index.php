@@ -42,7 +42,7 @@
         
         </div>
         <script>
-             // Проверка borwser на поддержку service worker
+             // Проверка браузера на поддержку сервисного работника
             if('serviceWorker' in navigator) {
                 navigator.serviceWorker
                     .register('/sw.js')

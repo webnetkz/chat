@@ -1,16 +1,24 @@
 <?php
 
     session_start();
-    $nameChat = 'chat_'.$_SESSION['chat'];
     $login = $_SESSION['login'];
+    $chat = $_SESSION['chat'];
 
-    // Connect DataBase
     require_once "/app/libs/DataBase.php";
     $pdo = new DataBase();
 
-    // Select message from table chat
-    $chat = $pdo->x->query("SELECT * FROM $nameChat");
-    $chat = $chat->fetchAll(PDO::FETCH_ASSOC);
+    // Выбор чатов
+    $chats = $pdo->x->query("SELECT * FROM $login");
+    $chats = $chats->fetch(PDO::FETCH_ASSOC);
+    
+
+
+
+    // Выбор сообщений
+    //$chat = $pdo->x->query("SELECT * FROM $nameChat");
+    //$chat = $chat->fetch(PDO::FETCH_ASSOC);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,12 +45,15 @@
 
         <div class="chat" id="chat">
             <?php
-                // Show message
-                foreach($chat as $key => $value) {
-                    echo $value['name'] . ' : ' . $value['message'] . '<br>';
-                }
+
+                // Отображение сообщений
+                //foreach($chat as $key => $value) {
+                //    echo $value['name'] . ' : ' . $value['message'] . '<br>';
+                //}
             ?>
         </div>
+
+
 
         <form class="chat" name="formChat">
             <input type="text" name="mes" autocomplete="off" class="inp mes" placeholder="Text" autofocus>
