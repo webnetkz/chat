@@ -2,16 +2,18 @@
 
 session_start();
 $login = $_SESSION['login'];
-$chat = $_SESSION['chat'];
+$Chat = $_SESSION['chat'];
+$Chat = $Chat['chats'];
 
 // Подключение к базе данных
 require_once "../libs/DataBase.php";
 $pdo = new DataBase();
 
 // Выбор сообщений
-$result = $pdo->x->query("SELECT * FROM $chat");
-var_dump($chat);
+$result = $pdo->x->query("SELECT * FROM $Chat");
+$result = $result->fetchAll(PDO::FETCH_ASSOC);
+
 // Отображение сообщений
-//foreach($result as $k => $v) {
-//    echo $value['name'] . ' : ' . $value['message'] . '<br>';
-//}
+foreach($result as $k => $v) {
+    echo $v['name'] . ' : ' . $v['message'] . '<br>';
+}

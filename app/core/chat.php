@@ -1,7 +1,8 @@
 <?php
 
 session_start();
-$chat = $_SESSION['chat'];
+$Chat = $_SESSION['chat'];
+$Chat = $Chat['chats'];
 $login = $_SESSION['login'];
     
 // Подключение к базе данных
@@ -11,15 +12,15 @@ $pdo = new DataBase();
 // Добавить сообщение в чат
 if(!empty($_POST['mes'])) {
     $mes = htmlentities($_POST['mes']);
-    $pdo->x->query("INSERT INTO $chat (message, name) VALUES ('$mes', '$login')");
+    $pdo->x->query("INSERT INTO $Chat (message, name) VALUES ('$mes', '$login')");
 }
 
 // Выбрать сообщения чата
-$mes = $pdo->x->query("SELECT * FROM $chat");
+$mes = $pdo->x->query("SELECT * FROM $Chat");
 $mes = $mes->fetchAll(PDO::FETCH_ASSOC);
 
 // Отобразить сообщения
-foreach($chat as $key => $value) {
+foreach($mes as $key => $value) {
     echo $value['name'] . ' : ' . $value['message'] . '<br>';
 }
 

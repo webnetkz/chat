@@ -7,16 +7,15 @@
     }
 
     $login = $_SESSION['login'];
-
+    $Chat = $_SESSION['chat'];
+    
     require_once "/app/libs/DataBase.php";
     $pdo = new DataBase();
-
-    $res = $pdo->x->query("SELECT * FROM $login");
-    $res = $res->fetch(PDO::FETCH_ASSOC);
-
-    if($res) {
-        echo 123;
+    
+    if(!empty($Chat) {
+        header("Location: /chat.php");
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +41,7 @@
     <body>
         <div id="content">
             <header>
-                <p class="login"><?php echo $_SESSION['login'];?></p>
+                <p class="login"><?php echo $login;?></p>
                 <a href="/app/core/exit.php"><button class="exit">Exit</button></a>
             </header>
             <p class="err">
@@ -50,6 +49,8 @@
                         echo $_SESSION['mes'];
                         $_SESSION['mes'] = '';
                     }
+
+                    echo $res;
                 ?>
             </p>    
         <form action="/app/core/search.php" method="POST" class="sign">

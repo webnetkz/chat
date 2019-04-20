@@ -4,8 +4,8 @@ session_start();
 
 require_once "../libs/DataBase.php";
 $pdo = new DataBase();
+
 $login = $_SESSION['login'];
-$chat = $_SESSION['chat'];
 
 // Неверные запросы
 if($_POST['user'] === '' or $_POST['user'] === $_SESSION['login']) {
@@ -27,18 +27,22 @@ if(!empty($_POST['user'])) {
         
     // Если пользователь существует
     if(!empty($result)) {
+        
+        $Chat = 'chat_'.$login.'_'.$user;
+        $_SESSION['chat'] = $Chat;
 
         // Создание таблицы чата
         $pdo->x->query(
-            "CREATE TABLE $chat(id INT(255) UNSIGNED NOT NULL AUTO_INCREMENT,
+            "CREATE TABLE $Chat(id INT(255) UNSIGNED NOT NULL AUTO_INCREMENT,
             message VARCHAR(8000) NOT NULL,
             name VARCHAR(55) NOT NULL,
             PRIMARY KEY (id))"
         );
-            
+
+
          // Добавления чатов 
-         $pdo->x->query("INSERT INTO $login(chats) VALUES ('$chat')");
-         $pdo->x->query("INSERT INTO $user(chats) VALUES ('$chat')");
+         $pdo->x->query("INSERT INTO $login(chats) VALUES ('$Chat')");
+         $pdo->x->query("INSERT INTO $user(chats) VALUES ('$Chat')");
 
         header('Location: ../../chat.php');
     } else {
