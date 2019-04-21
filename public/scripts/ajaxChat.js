@@ -30,10 +30,12 @@ document.forms.formChat.onsubmit = function(event) {
 setInterval(function con() {
     let xhr = new XMLHttpRequest();
     
-        xhr.open('GET', '../../app/core/message.php', false);
-        xhr.send();
-        chat.innerHTML = xhr.responseText;
-
-        // Смещение фокуса
-        chat.scrollTop = chat.scrollHeight;
+    xhr.open('GET', '../../app/core/message.php', false);
+    xhr.send();
+    chat.innerHTML = xhr.responseText;
 }, 1000);
+
+// Смещение фокуса
+setInterval(function() {
+    chat.scrollTop = chat.scrollHeight;
+},100);

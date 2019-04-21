@@ -8,13 +8,14 @@
 
     $login = $_SESSION['login'];
     $Chat = $_SESSION['chat'];
+    $Chat = $Chat['chats'];
     
     require_once "/app/libs/DataBase.php";
     $pdo = new DataBase();
     
-    if(!empty($Chat) {
-        header("Location: /chat.php");
-    }
+    //if(!empty($Chat) {
+    //    header("Location: /chat.php");
+    //}
 
 ?>
 
@@ -45,12 +46,11 @@
                 <a href="/app/core/exit.php"><button class="exit">Exit</button></a>
             </header>
             <p class="err">
-                <?php if(!empty($_SESSION['mes'])) {
+                <?php 
+                    if(!empty($_SESSION['mes'])) {
                         echo $_SESSION['mes'];
                         $_SESSION['mes'] = '';
                     }
-
-                    echo $res;
                 ?>
             </p>    
         <form action="/app/core/search.php" method="POST" class="sign">

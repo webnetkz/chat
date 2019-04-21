@@ -3,7 +3,7 @@
 session_start();
 $login = $_SESSION['login'];
 $Chat = $_SESSION['chat'];
-$Chat = $Chat['chats'];
+
 
 // Подключение к базе данных
 require_once "../libs/DataBase.php";

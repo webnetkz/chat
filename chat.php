@@ -30,12 +30,7 @@
     <body>
         <div id="content">
         <div class="chat" id="chat">
-            <?php
-                // Отображение сообщений
-                //foreach($result as $key => $value) {
-                //    echo $value['name'] . ' : ' . $value['message'] . '<br>';
-                //}
-            ?>
+        
         </div>
         <form class="chat" name="formChat">
             <input type="text" name="mes" autocomplete="off" class="inp mes" placeholder="Text" autofocus>

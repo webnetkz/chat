@@ -2,7 +2,6 @@
 
 session_start();
 $Chat = $_SESSION['chat'];
-$Chat = $Chat['chats'];
 $login = $_SESSION['login'];
     
 // Подключение к базе данных
