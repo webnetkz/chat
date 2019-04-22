@@ -7,7 +7,6 @@
     require_once "/app/libs/DataBase.php";
     $pdo = new DataBase();
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,15 +29,12 @@
     <body>
         <div id="content">
         <div class="chat" id="chat">
-        
         </div>
         <form class="chat" name="formChat">
             <input type="text" name="mes" autocomplete="off" class="inp mes" placeholder="Text" autofocus>
             <input type="submit" class="subBtn sendBtn" value="Send">
         </form>
-          
         <img src="/public/img/logo.png" alt="logo" class="logo">
-        
         </div>
         <script src="/public/scripts/ajaxChat.js"></script>
         <script src="/public/scripts/main.js"></script>

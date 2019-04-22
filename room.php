@@ -5,17 +5,26 @@
     if(empty($_SESSION['login'])) {
         header("Location: /");
     }
-
-    $login = $_SESSION['login'];
-    $Chat = $_SESSION['chat'];
-    $Chat = $Chat['chats'];
     
     require_once "/app/libs/DataBase.php";
     $pdo = new DataBase();
+
+    $login = $_SESSION['login'];
     
-    //if(!empty($Chat) {
-    //    header("Location: /chat.php");
-    //}
+    // Существующие чаты
+    $res = $pdo->x->query("SELECT * FROM $login");
+    $res = $res->fetchAll(PDO::FETCH_ASSOC);
+    
+    if(!empty($Chat)) {
+        header("Location: /chat.php");
+    }
+
+    // Выбор чата
+    if(!empty($_POST['selChat'])) {
+        $Chat = $_POST['selChat'];
+        $_SESSION['chat'] = $Chat;
+        header("Location: /chat.php");
+    }
 
 ?>
 
@@ -47,19 +56,30 @@
             </header>
             <p class="err">
                 <?php 
+
                     if(!empty($_SESSION['mes'])) {
                         echo $_SESSION['mes'];
                         $_SESSION['mes'] = '';
                     }
+                
                 ?>
             </p>    
         <form action="/app/core/search.php" method="POST" class="sign">
             <input type="text" autocomplete="off" class="inp" placeholder="search user" name="user">
             <input type="submit" class="subBtn" value="Go">
         </form>
+        <nav>
+            <form action="room.php" method="POST">
+            <?php
 
+                foreach($res as $k => $v) {
+                    echo '<input type="submit" value="'. $v['chats'].'" class="chatsBtn" name="selChat">';
+                }
 
-            
+            ?>
+
+            </form>
+        </nav>
         <img src="/public/img/logo.png" alt="logo" class="logo">
         
         </div>

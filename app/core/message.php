@@ -4,7 +4,6 @@ session_start();
 $login = $_SESSION['login'];
 $Chat = $_SESSION['chat'];
 
-
 // Подключение к базе данных
 require_once "../libs/DataBase.php";
 $pdo = new DataBase();

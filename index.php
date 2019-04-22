@@ -1,12 +1,12 @@
 <?php
 
-        session_start();
-        if(!empty($_SESSION['login'])) {
-            header("Location: /room.php");
-        }
+    session_start();
+    if(!empty($_SESSION['login'])) {
+        header("Location: /room.php");
+    }
 
-        require_once "app/libs/DataBase.php";
-        $pdo = new DataBase();
+    require_once "app/libs/DataBase.php";
+    $pdo = new DataBase();
 
 ?>
 <!DOCTYPE html>
@@ -31,15 +31,11 @@
 
     <body>
         <div id="content">
-
         <form class="sign" action="/app/core/sign.php" method="POST">
             <input type="text" name="login" autocomplete="off" class="inp" placeholder="Your login">
             <input type="submit" class="subBtn" value="Go">
-        </form>
-
-            
+        </form>  
         <img src="/public/img/logo.png" alt="logo" class="logo">
-        
         </div>
         <script>
              // Проверка браузера на поддержку сервисного работника

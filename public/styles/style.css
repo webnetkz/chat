@@ -151,3 +151,20 @@ div.chat {
     background-color: rgb(54, 111, 149);
     border-radius: 6px;
 }
+
+nav {
+    position: fixed;
+    left: 70%;
+    top: 100px;
+    height: 60%;
+    width: 15%;
+    background-color: red;
+    padding: 100px;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    z-index: 88;
+}
+
+input.chatsBtn {
+    width: 100%;
+    margin: 1px;
+}
