@@ -28,6 +28,10 @@
     </head>
     <body>
         <div id="content">
+        <header>
+            <p class="login"><?php echo $login;?></p>
+            <a href="/room.php"><button class="exit">Back</button></a>
+        </header>
         <div class="chat" id="chat">
         </div>
         <form class="chat" name="formChat">

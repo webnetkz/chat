@@ -65,8 +65,8 @@
                 ?>
             </p>    
         <form action="/app/core/search.php" method="POST" class="sign">
-        <input type="text" autocomplete="off" class="inp" placeholder="search user" name="user">
-        <input type="submit" class="subBtn" value="Go">
+            <input type="text" autocomplete="off" class="inp" placeholder="search user" name="user">
+            <input type="submit" class="subBtn" value="Go">
         </form>
         <nav>
             <form action="room.php" method="POST">
@@ -82,8 +82,7 @@
 
             </form>
         </nav>
-        <img src="/public/img/logo.png" alt="logo" class="logo">
-        
+        <img src="/public/img/logo.png" alt="logo" class="logo"> 
         </div>
         <script src="/public/scripts/main.js"></script>
     </body>
