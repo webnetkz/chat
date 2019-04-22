@@ -6,7 +6,7 @@
         header("Location: /");
     }
     
-    require_once "/app/libs/DataBase.php";
+    require_once "app/libs/DataBase.php";
     $pdo = new DataBase();
 
     $login = $_SESSION['login'];
@@ -52,7 +52,7 @@
         <div id="content">
             <header>
                 <p class="login"><?php echo $login;?></p>
-                <a href="/app/core/exit.php"><button class="exit">Exit</button></a>
+                <a href="app/core/exit.php"><button class="exit">Exit</button></a>
             </header>
             <p class="err">
                 <?php 
@@ -64,7 +64,7 @@
                 
                 ?>
             </p>    
-        <form action="/app/core/search.php" method="POST" class="sign">
+        <form action="app/core/search.php" method="POST" class="sign">
             <input type="text" autocomplete="off" class="inp" placeholder="search user" name="user">
             <input type="submit" class="subBtn" value="Go">
         </form>
