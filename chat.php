@@ -4,7 +4,7 @@
     $login = $_SESSION['login'];
     $Chat = $_SESSION['chat'];
 
-    require_once "/app/libs/DataBase.php";
+    require_once "app/libs/DataBase.php";
     $pdo = new DataBase();
 
 ?>
