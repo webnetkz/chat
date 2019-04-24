@@ -10,9 +10,13 @@ $pdo = new DataBase();
 
 // Выбор сообщений
 $result = $pdo->x->query("SELECT * FROM $Chat");
-$result = $result->fetchAll(PDO::FETCH_ASSOC);
+if($result) {
+    $result = $result->fetchAll(PDO::FETCH_ASSOC);
+}
 
 // Отображение сообщений
-foreach($result as $k => $v) {
-    echo $v['name'] . ' : ' . $v['message'] . '<br>';
+if(!empty($result)) {
+    foreach($result as $k => $v) {
+        echo $v['name'] . ' : ' . $v['message'] . '<br>';
+    }
 }

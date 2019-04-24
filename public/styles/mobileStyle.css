@@ -20,30 +20,11 @@
         transform: scale(2);
     }
 
-    input.subBtn {
-        position: fixed;
-        top: 92%;
-        left: 45%;
-        visibility: visible;
-        background-color: rgb(54, 111, 149);
-        color: rgb(255, 255, 255);
-        border: none;
-        border-radius: 20px;
-        padding: 1em;
-        outline: none;
-    }
-
     input.mes {
         position: fixed;
         top: 90%;
         left: 0;
         width: 30%;
-    }
-
-    input.sendBtn {
-        position: fixed;
-        top: 88%;
-        left: 80%;
     }
 
     #chat {

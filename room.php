@@ -13,7 +13,10 @@
     
     // Существующие чаты
     $res = $pdo->x->query("SELECT * FROM $login");
-    $res = $res->fetchAll(PDO::FETCH_ASSOC);
+
+    if($res) {
+        $res = $res->fetchAll(PDO::FETCH_ASSOC);
+    }
     
     if(!empty($Chat)) {
         header("Location: /chat.php");
@@ -73,9 +76,11 @@
                 <h4>Main chats</h4>
             
             <?php
-
-                foreach($res as $k => $v) {
-                    echo '<input type="submit" value="'. $v['chats'].'" class="chatsBtn" name="selChat">';
+            
+                if(!empty($res)) {
+                    foreach($res as $k => $v) {
+                        echo '<input type="submit" value="'. $v['chats'].'" class="chatsBtn" name="selChat">';
+                    }
                 }
 
             ?>

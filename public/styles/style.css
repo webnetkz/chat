@@ -49,10 +49,6 @@ form.sign {
     }
 }
 
-input.subBtn {
-    visibility: hidden;
-}
-
 input.inp {
     margin-left: 15%;
     outline: none;

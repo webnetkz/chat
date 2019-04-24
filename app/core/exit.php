@@ -6,12 +6,15 @@ $login = $_SESSION['login'];
 require_once "../libs/DataBase.php";
 $pdo = new DataBase();
 
+// Удалить список чатов
 $res = $pdo->x->query("SELECT * FROM $login");
-$res = $res->fetchAll(PDO::FETCH_ASSOC);
+if($res) {
+    $res = $res->fetchAll(PDO::FETCH_ASSOC);
+}
 
 $Chat = $res[0]['chats'];
 
-// Удаление пользователя
+// Удалить пользователя
 $sql = 'DELETE FROM users WHERE login = ?';
 $stmt = $pdo->x->prepare($sql);
 

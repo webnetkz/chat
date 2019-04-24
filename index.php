@@ -33,7 +33,6 @@
         <div id="content">
         <form class="sign" action="/app/core/sign.php" method="POST">
             <input type="text" name="login" autocomplete="off" class="inp" placeholder="Your login">
-            <input type="submit" class="subBtn" value="Go">
         </form>  
         <img src="/public/img/logo.png" alt="logo" class="logo">
         </div>

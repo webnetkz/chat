@@ -36,7 +36,6 @@
         </div>
         <form class="chat" name="formChat">
             <input type="text" name="mes" autocomplete="off" class="inp mes" placeholder="Text" autofocus>
-            <input type="submit" class="subBtn sendBtn" value="Send">
         </form>
         <img src="/public/img/logo.png" alt="logo" class="logo">
         </div>
