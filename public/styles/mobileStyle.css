@@ -24,10 +24,20 @@
         position: fixed;
         top: 90%;
         left: 0;
-        width: 30%;
+        width: 40%;
     }
 
     #chat {
-        width: 90%;
+        background: rgba(0, 0, 0, 0.1);
+        margin-bottom: 25%;
+        width: 85%;
+        left: 5%;
+    }
+
+    nav {
+        height: 60%;
+        width: 85%;
+        left: 5%;
+        top: 60px;
     }
 }

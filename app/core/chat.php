@@ -16,11 +16,15 @@ if(!empty($_POST['mes'])) {
 
 // Выбрать сообщения чата
 $mes = $pdo->x->query("SELECT * FROM $Chat");
-$mes = $mes->fetchAll(PDO::FETCH_ASSOC);
+if($mes) {
+    $mes = $mes->fetchAll(PDO::FETCH_ASSOC);
+}
 
 // Отобразить сообщения
-foreach($mes as $key => $value) {
-    echo $value['name'] . ' : ' . $value['message'] . '<br>';
+if(!empty($mes)) {
+    foreach($mes as $key => $value) {
+        echo $value['name'] . ' : ' . $value['message'] . '<br>';
+    }
 }
 
 

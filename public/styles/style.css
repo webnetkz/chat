@@ -128,8 +128,9 @@ div.chat {
     padding: 3%;
     width: 40%;
     height: 450px;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
     overflow: auto;
+    word-wrap: break-word;
 }
 
 
