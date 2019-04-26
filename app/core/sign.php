@@ -6,7 +6,9 @@ session_start();
 require_once "../libs/DataBase.php";
 $pdo = new DataBase();
 
+// Регистрация, авторизация
 if(!empty($_POST['login'])) {
+
     $login = htmlentities($_POST['login']);
     $login = trim($login);
         
@@ -19,25 +21,26 @@ if(!empty($_POST['login'])) {
     $stmt->execute([$login]);
     $result = $stmt->fetch(PDO::FETCH_OBJ);
 
-    // Если существует пользователь
+    // Если существует пользователь редиректим
     if($result) {
-        header("Location: /room.php");
+        header("Location: room.php");
     } else {
-        // Иначе создаем пользователя
+        // Создаем пользователя
         $sqlReg = 'INSERT INTO users (login) VALUES (?)';
         $stmtReg = $pdo->x->prepare($sqlReg);
 
         $stmtReg->execute([$login]);
             
-        // Создать таблицу чатов
+        // Создать таблицу чатов для нового пользователя
         $pdo->x->query(
             "CREATE TABLE IF NOT EXISTS $login(id INT (255) UNSIGNED NOT NULL AUTO_INCREMENT,
             chats VARCHAR(55) NOT NULL,    
             PRIMARY KEY (id))"
         );
 
-        header("Location: /room.php"); 
-    }   
+        header("Location: room.php"); 
+    }
+
 } else {
     header("Location: /");
 }

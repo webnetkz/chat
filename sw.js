@@ -11,9 +11,7 @@ self.addEventListener('install', function(e) {
        '/public/img/logo.png',
        '/public/scripts/main.js',
        '/public/styles/style.css',
-       '/public/styles/mobileStyle.css',
-       '/chat.php',
-       '/room.php'   
+       '/public/styles/mobileStyle.css   
      ]);
    })
  );
