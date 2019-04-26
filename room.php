@@ -11,7 +11,7 @@
 
     $login = $_SESSION['login'];
     
-    // Существующие чаты
+    // Существующие чаты пользователя
     $res = $pdo->x->query("SELECT * FROM $login");
 
     if($res) {
@@ -19,14 +19,14 @@
     }
     
     if(!empty($Chat)) {
-        header("Location: /chat.php");
+        header("Location: chat.php");
     }
 
     // Выбор чата
     if(!empty($_POST['selChat'])) {
         $Chat = $_POST['selChat'];
         $_SESSION['chat'] = $Chat;
-        header("Location: /chat.php");
+        header("Location: chat.php");
     }
 
 ?>
