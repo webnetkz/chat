@@ -32,12 +32,14 @@
     <body>
         <div id="content">
         <form class="sign" action="/app/core/sign.php" method="POST">
-            <input type="text" name="login" autocomplete="off" class="inp" placeholder="Your login">
+            <label for="loginReg">
+                <input type="text" name="login" autocomplete="off" class="inp" placeholder="Your login" id="loginReg">
+            </label>
         </form>  
         <img src="/public/img/logo.png" alt="logo" class="logo">
         </div>
         <script>
-             // Проверка браузера на поддержку сервисного работника
+             // Проверка возможности запуска сервисного работника
             if('serviceWorker' in navigator) {
                 navigator.serviceWorker
                     .register('/sw.js')

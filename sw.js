@@ -1,23 +1,25 @@
 importScripts('cache-polyfill.js');
 
-
+// Кэширование файлов для оффлайн режима
 self.addEventListener('install', function(e) {
  e.waitUntil(
    caches.open('title').then(function(cache) {
      return cache.addAll([
        '/',
-       '/index.html',
-       '/public/img/miniLogo.svg',
-       '/public/img/logo.svg',
+       '/index.php',
+       '/public/img/miniLogo.png',
+       '/public/img/logo.png',
        '/public/scripts/main.js',
        '/public/styles/style.css',
-       '/public/styles/mobileStyle.css'
+       '/public/styles/mobileStyle.css',
+       '/chat.php',
+       '/room.php'   
      ]);
    })
  );
 });
 
- // Кэширование запросов с родительской страници
+ // Кэширование запросов с родительской страницы
 self.addEventListener('fetch', function(event) {
 
   console.log(event.request.url);

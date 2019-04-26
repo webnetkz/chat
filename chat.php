@@ -29,13 +29,19 @@
     <body>
         <div id="content">
         <header>
-            <p class="login"><?php echo $login;?></p>
-            <a href="/room.php"><button class="exit">Back</button></a>
+            <p class="login">
+                <?php echo $login;?>
+            </p>
+            <a href="/room.php">
+                <button class="exit">Back</button>
+            </a>
         </header>
         <div class="chat" id="chat">
         </div>
         <form class="chat" name="formChat">
-            <input type="text" name="mes" autocomplete="off" class="inp mes" placeholder="Text" autofocus>
+            <label for="yourMessage">
+                <input type="text" name="mes" autocomplete="off" class="inp mes" placeholder="Text" autofocus id="yourMessage">
+            </label>
         </form>
         <img src="/public/img/logo.png" alt="logo" class="logo">
         </div>

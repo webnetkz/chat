@@ -54,8 +54,12 @@
     <body>
         <div id="content">
             <header>
-                <p class="login"><?php echo $login;?></p>
-                <a href="app/core/exit.php"><button class="exit">Exit</button></a>
+                <p class="login">
+                    <?php echo $login;?>
+                </p>
+                <a href="app/core/exit.php">
+                    <button class="exit">Exit</button>
+                </a>
             </header>
             <p class="err">
                 <?php 
