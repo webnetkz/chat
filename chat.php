@@ -39,9 +39,7 @@
         <div class="chat" id="chat">
         </div>
         <form class="chat" name="formChat">
-            <label for="yourMessage">
-                <input type="text" name="mes" autocomplete="off" class="inp mes" placeholder="Text" autofocus id="yourMessage">
-            </label>
+            <input type="text" name="mes" autocomplete="off" class="inp mes" placeholder="Text" autofocus>
         </form>
         <img src="/public/img/logo.png" alt="logo" class="logo">
         </div>

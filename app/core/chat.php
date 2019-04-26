@@ -20,7 +20,7 @@ if($mes) {
     $mes = $mes->fetchAll(PDO::FETCH_ASSOC);
 }
 
-// Отобразить сообщения
+// Просмотр сообщения
 if(!empty($mes)) {
     foreach($mes as $key => $value) {
         echo $value['name'] . ' : ' . $value['message'] . '<br>';

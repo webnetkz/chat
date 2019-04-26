@@ -1,1 +1,0 @@
-var yourMessage = document.querySelector("#yourMessage");
