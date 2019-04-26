@@ -72,7 +72,9 @@
                 ?>
             </p>    
         <form action="app/core/search.php" method="POST" class="sign">
-            <input type="text" autocomplete="off" class="inp" placeholder="search user" name="user">
+            <label for="searchUser">
+                <input type="text" autocomplete="off" class="inp" placeholder="search user" name="user" id="searchUser">
+            </label>
         </form>
         <nav>
             <form action="room.php" method="POST">
