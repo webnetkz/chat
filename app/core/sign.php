@@ -23,7 +23,7 @@ if(!empty($_POST['login'])) {
 
     // Если существует пользователь редиректим
     if($result) {
-        header("Location: room.php");
+        header("Location: ../../room.php");
     } else {
         // Создаем пользователя
         $sqlReg = 'INSERT INTO users (login) VALUES (?)';
@@ -38,7 +38,7 @@ if(!empty($_POST['login'])) {
             PRIMARY KEY (id))"
         );
 
-        header("Location: room.php"); 
+        header("Location: ../../room.php"); 
     }
 
 } else {
