@@ -2,10 +2,12 @@
 
     session_start();
 
+    // Попытка входа без логина
     if(!empty($_SESSION['login'])) {
         header("Location: index.php");
     }
     
+    // Подключение к базе данных
     require_once "app/libs/DataBase.php";
     $pdo = new DataBase();
 
@@ -18,7 +20,7 @@
         $res = $res->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // Выбор чатов
+    // Запустить новый чат 
     if(!empty($_POST['selChat'])) {
         $Chat = $_POST['selChat'];
         $_SESSION['chat'] = $Chat;
