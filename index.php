@@ -1,10 +1,14 @@
 <?php
 
     session_start();
+
     if(!empty($_SESSION['login'])) {
         header("Location: room.php");
     }
 
+    if(!empty($_POST['loginReg'])) {
+        $_SESSION['login'] = $_POST['login'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

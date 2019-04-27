@@ -2,17 +2,18 @@
 
 session_start();
 
+// Подключение к базе данных
 require_once "../libs/DataBase.php";
 $pdo = new DataBase();
 
 $login = $_SESSION['login'];
 
-// Неверные запросы
+// Неверные запросы редиректим
 if($_POST['user'] === '' or $_POST['user'] === $_SESSION['login']) {
     header('Location: ../../room.php');
 }
 
-// Верный запрос
+// Верный запрос обрабатываем
 if(!empty($_POST['user'])) {
         
     $user = trim($_POST['user']);

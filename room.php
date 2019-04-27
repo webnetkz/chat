@@ -53,7 +53,7 @@
         <div id="content">
             <header>
                 <p class="login">
-                    <?php echo $login;?>
+                    <?php echo if(!empty($_SESSION['login'])) { echo $_SESSION['login']};?>
                 </p>
                 <a href="app/core/exit.php">
                     <button class="exit">Exit</button>
@@ -61,7 +61,7 @@
             </header>
             <p class="err">
                 <?php 
-
+                    // Отображение ошибки поиска пользователя
                     if(!empty($_SESSION['mes'])) {
                         echo $_SESSION['mes'];
                         $_SESSION['mes'] = '';
