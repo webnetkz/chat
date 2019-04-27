@@ -2,8 +2,8 @@
 
     session_start();
 
-    if(empty($_SESSION['login'])) {
-        header("Location: /");
+    if(!empty($_SESSION['login'])) {
+        header("Location: index.php");
     }
     
     require_once "app/libs/DataBase.php";
@@ -17,12 +17,8 @@
     if($res) {
         $res = $res->fetchAll(PDO::FETCH_ASSOC);
     }
-    
-    if(!empty($Chat)) {
-        header("Location: chat.php");
-    }
 
-    // Выбор чата
+    // Выбор чатов
     if(!empty($_POST['selChat'])) {
         $Chat = $_POST['selChat'];
         $_SESSION['chat'] = $Chat;

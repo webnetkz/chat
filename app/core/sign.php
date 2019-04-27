@@ -42,5 +42,5 @@ if(!empty($_POST['login'])) {
     }
 
 } else {
-    header("Location: /");
+    header("Location: ../../index.php");
 }

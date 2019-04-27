@@ -13,7 +13,7 @@ self.addEventListener('install', function(e) {
        '/public/styles/style.css',
        '/public/styles/mobileStyle.css',
        '/room.php',
-       'chat.php' 
+       '/chat.php' 
      ]);
    })
  );
