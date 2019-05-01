@@ -40,15 +40,15 @@ if(!empty($_POST['user'])) {
          $pdo->x->query("INSERT INTO $login(chats) VALUES ('$Chat')");
          $pdo->x->query("INSERT INTO $user(chats) VALUES ('$Chat')");
 
-        header('Location: ../../chat.php');
+        header('Location: https://secretchat.gq/chat.php');
     } else {
         // Если пользователь не найден
         $_SESSION['mes'] = 'User is not found!';
-        header('Location: ../../room.php');
+        header('Location: https://secretchat.gq/room.php');
     }
 }
 
 // Пустой запрос
 if($_POST['user'] === '') {
-    header('Location: ../../room.php');
+    header('Location: https://secretchat.gq/room.php');
 }
