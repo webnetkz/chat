@@ -4,7 +4,7 @@
 
     // Попытка входа без логина
     if(!empty($_SESSION['login'])) {
-        header("Location: index.php");
+        header("Location: /index.php");
     }
     
     // Подключение к базе данных
@@ -24,7 +24,7 @@
     if(!empty($_POST['selChat'])) {
         $Chat = $_POST['selChat'];
         $_SESSION['chat'] = $Chat;
-        header("Location: chat.php");
+        header("Location: /chat.php");
     }
 
 ?>
@@ -53,7 +53,7 @@
         <div id="content">
             <header>
                 <p class="login">
-                    <?php echo if(!empty($_SESSION['login'])) { echo $_SESSION['login']};?>
+                    <?php if(!empty($_SESSION['login'])) { echo $_SESSION['login'];}?>
                 </p>
                 <a href="app/core/exit.php">
                     <button class="exit">Exit</button>
@@ -86,6 +86,7 @@
                     }
                 }
 
+        
             ?>
 
             </form>

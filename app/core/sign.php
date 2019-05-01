@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 // Подключение к Базе данных
 require_once "../libs/DataBase.php";
 $pdo = new DataBase();
@@ -11,7 +9,7 @@ if(!empty($_POST['login'])) {
 
     $login = htmlentities($_POST['login']);
     $login = trim($login);
-        
+
     $_SESSION['login'] = $login;
 
     // Проверка на существование логина
