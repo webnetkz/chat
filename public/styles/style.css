@@ -51,7 +51,7 @@ form.sign {
 
 input.inp {
     margin-left: -40px;
-    margin-bottom: 60px;
+    margin-bottom: 100px;
     outline: none;
     color: rgb(255, 255, 255);
     transition-duration: 500ms;
@@ -60,12 +60,32 @@ input.inp {
     background-color: rgb(54, 111, 149);
     box-shadow: 0 15px 15px rgba(54, 111, 149);
     border: none;
-    transform: scale(1.5);
-    margin-bottom: 2em;
+    transform: scale(1.8);
 }
 
 input.inp:focus {
-    transform: scale(2.5);
+    transform: scale(2);
+    border: none;
+    border-bottom: 2px solid rgb(54, 111, 149);
+    background-color: rgb(23,26,33);
+}
+
+input.inpS {
+    margin-left: 15%;
+    margin-bottom: 100px;
+    outline: none;
+    color: rgb(255, 255, 255);
+    transition-duration: 500ms;
+    text-align: center;
+    border-radius: 20px;
+    background-color: rgb(54, 111, 149);
+    box-shadow: 0 15px 15px rgba(54, 111, 149);
+    border: none;
+    transform: scale(1.8);
+}
+
+input.inpS:focus {
+    transform: scale(2);
     border: none;
     border-bottom: 2px solid rgb(54, 111, 149);
     background-color: rgb(23,26,33);

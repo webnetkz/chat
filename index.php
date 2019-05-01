@@ -22,8 +22,9 @@
         <div id="content">
         <form class="sign" action="/app/core/sign.php" method="POST">
             <label for="loginReg">Your login
-                    <input type="text" name="login" autocomplete="off" class="inp" placeholder="Your login" id="loginReg">
             </label>
+                <input type="text" name="login" autocomplete="off" class="inp" placeholder="Your login" id="loginReg">
+
         </form>  
         <img src="/public/img/logo.png" alt="logo" class="logo">
         </div>

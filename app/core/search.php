@@ -8,27 +8,23 @@ $pdo = new DataBase();
 
 $login = $_SESSION['login'];
 
-// Неверные запросы редиректим
-if($_POST['user'] === '' or $_POST['user'] === $_SESSION['login']) {
-    header('Location: ../../room.php');
-}
 
 // Верный запрос обрабатываем
 if(!empty($_POST['user'])) {
-        
+
     $user = trim($_POST['user']);
     $user = htmlentities($user);
-        
+
     // Поиск пользователя в таблицах
     $sql = 'SELECT * FROM users WHERE login = ?';
     $stmt = $pdo->x->prepare($sql);
-        
+
     $stmt->execute([$user]);
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        
+
     // Если пользователь существует
     if(!empty($result)) {
-        
+
         $Chat = 'chat_'.$login.'_'.$user;
         $_SESSION['chat'] = $Chat;
 
@@ -40,8 +36,7 @@ if(!empty($_POST['user'])) {
             PRIMARY KEY (id))"
         );
 
-
-         // Добавления чатов 
+         // Добавления чатов
          $pdo->x->query("INSERT INTO $login(chats) VALUES ('$Chat')");
          $pdo->x->query("INSERT INTO $user(chats) VALUES ('$Chat')");
 
@@ -50,6 +45,10 @@ if(!empty($_POST['user'])) {
         // Если пользователь не найден
         $_SESSION['mes'] = 'User is not found!';
         header('Location: ../../room.php');
-    }  
+    }
 }
-    
+
+// Пустой запрос
+if($_POST['user'] === '') {
+    header('Location: ../../room.php');
+}
