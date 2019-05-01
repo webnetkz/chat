@@ -1,15 +1,16 @@
 <?php
 
-// Подключение к Базе данных
-require_once "../libs/DataBase.php";
-$pdo = new DataBase();
-
 // Регистрация, авторизация
 if(!empty($_POST['login'])) {
+
+    // Подключение к Базе данных
+    require_once "../libs/DataBase.php";
+    $pdo = new DataBase();
 
     $login = htmlentities($_POST['login']);
     $login = trim($login);
 
+    session_start();
     $_SESSION['login'] = $login;
 
     // Проверка на существование логина

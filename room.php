@@ -3,7 +3,7 @@
     session_start();
 
     // Попытка входа без логина
-    if(!empty($_SESSION['login'])) {
+    if(empty($_SESSION['login'])) {
         header("Location: /index.php");
     }
     
